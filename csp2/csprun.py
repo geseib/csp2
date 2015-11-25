@@ -47,4 +47,5 @@ print my_server.user
 get_services()
 if args.debug:
     print "Verbose Debuging on"
+    print "it really doesnt do anything"
 
