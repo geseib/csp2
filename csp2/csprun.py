@@ -10,6 +10,7 @@ default_password='admin'
 
 
 parser = argparse.ArgumentParser(description='CSP worker tool.')
+
 parser.add_argument('service', type=str,nargs='?',help='name of the service')
 parser.add_argument('--status', action='store_true',help='list attributes')
 parser.add_argument('--list','-l', action='store_true',help='list services')
@@ -26,8 +27,10 @@ parser.add_argument('--user', '-U', type=str,nargs=1,help='username for the CSP'
 parser.add_argument('--password','-P', type=str,nargs=1,help='password for the CSP',default=default_password)
 
 args=parser.parse_args()
-
-
+if __name__ != "__main__":
+    args.user=default_user
+    args.server=default_server
+    args.password=default_password
 
 def get_services():
     """Using the cspsever.csp object poll for a list of service on the CSP server"""
